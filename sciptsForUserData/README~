@@ -1,0 +1,24 @@
+
+ ---- getData.sh 
+gets the users raw data from the server based on whether they have power information logged in the way Nexus 4 log its data. (Folders are transformed into 'Processing' folder)
+It skips the users' folders which does not have this form of logging (The nexus 4 form). It unzips the power.gz file into 'power' for further analysis 
+
+
+--- cleanBatteryDataLevelPluggedStatus.sh
+Create 3 separate files per user for 
+1- Level information (SOC)
+2- Plugged information (whether plugged or not) 
+3- Status information (charging, discharging, full, ... ) 
+These files are in /processed/$userindex/ 
+file name: $userindex.$chunkindex.$field
+
+
+--- clean_data.py
+A python script written by Paul. It puts the battery information in csv format to be used later in Matlab.
+
+--- status_index
+A text file keeps track of the users' chunck that has been correctly transfered. (For debug instead of going inside folder by folder to make sure what has been transfered)
+
+
+loc_user_ind.txt 
+A text file contains the indices of users that have location information (if required)
